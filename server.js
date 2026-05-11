@@ -18,7 +18,8 @@ const httpServer = createServer(app);
 // SOCKET.IO SETUP
 const io = new Server(httpServer, {
   cors: {
-    origin: "http://localhost:5173",
+    origin: ["http://localhost:5173",
+             "https://skins-wybb.onrender.com"]
     credentials: true,
   },
 });
