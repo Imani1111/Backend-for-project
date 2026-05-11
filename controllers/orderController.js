@@ -63,13 +63,19 @@ exports.createOrder = async (req, res) => {
 // GET ORDERS
 exports.getOrders = async (req, res) => {
     try {
-        const userId = req.user.userId;
+        let query, params;
 
-        const [orders] = await db.execute(
-            "SELECT * FROM orders WHERE user_id = ? ORDER BY created_at DESC",
-            [userId]
-        );
+        // Admin can see all orders, regular users see only their own
+        if (req.user.role === 'admin') {
+            query = "SELECT * FROM orders ORDER BY created_at DESC";
+            params = [];
+        } else {
+            const userId = req.user.userId;
+            query = "SELECT * FROM orders WHERE user_id = ? ORDER BY created_at DESC";
+            params = [userId];
+        }
 
+        const [orders] = await db.execute(query, params);
         res.json(orders);
     } catch (err) {
         res.status(500).json({ error: err.message });

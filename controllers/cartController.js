@@ -33,6 +33,8 @@ exports.addToCart = async (req, res) => {
             return res.status(400).json({ error: "Product ID is missing (neither id nor _id found)" });
         }
 
+        const quantity = product.quantity ? Number(product.quantity) : 1;
+
         const params = [cleanParam(userId), cleanParam(productId)];
 
         const [existing] = await db.execute(
@@ -42,8 +44,8 @@ exports.addToCart = async (req, res) => {
 
         if (existing.length > 0) {
             await db.execute(
-                "UPDATE cart SET quantity = quantity + 1 WHERE user_id = ? AND product_id = ?",
-                [cleanParam(userId), cleanParam(productId)]
+                "UPDATE cart SET quantity = quantity + ? WHERE user_id = ? AND product_id = ?",
+                [quantity, cleanParam(userId), cleanParam(productId)]
             );
         } else {
             const insertParams = [
@@ -52,7 +54,7 @@ exports.addToCart = async (req, res) => {
                 cleanParam(product.name),
                 cleanParam(product.price),
                 cleanParam(product.image),
-                1,
+                quantity,
             ];
 
             await db.execute(

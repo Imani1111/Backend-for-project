@@ -93,6 +93,14 @@ const updateProduct = async (req, res) => {
         .json({ success: false, message: "Product not found" });
     }
 
+    // Fetch updated product to emit via Socket.IO
+    const [updatedRows] = await db.execute("SELECT * FROM products WHERE id = ?", [
+      req.params.id,
+    ]);
+    const updatedProduct = updatedRows[0];
+
+    io.emit("productUpdated", updatedProduct);
+
     return res
       .status(200)
       .json({ success: true, message: "Product updated successfully" });

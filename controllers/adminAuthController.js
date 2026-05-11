@@ -70,6 +70,12 @@ const verifyAdminToken = async (req, res, next) => {
         if (!token) return res.status(401).json({ message: "Access denied. No token provided." });
 
         const decoded = jwt.verify(token, JWT_SECRET);
+
+        // Ensure token has admin role
+        if (!decoded.role || decoded.role !== 'admin') {
+            return res.status(403).json({ message: "Access denied. Admin privileges required." });
+        }
+
         req.admin = decoded; // attach decoded token to request
         next();
     } catch (err) {
