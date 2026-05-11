@@ -42,7 +42,9 @@ const addProduct = async (req, res) => {
       category: category || "General",
     };
 
-    io.emit("productAdded", newProduct); // ⚡ emit event
+    if (newProduct) {
+      io.emit("productAdded", newProduct); // ⚡ emit event
+    }
 
     return res.status(201).json({ success: true, product: newProduct });
   } catch (error) {
@@ -52,6 +54,7 @@ const addProduct = async (req, res) => {
 };
 
 const updateProduct = async (req, res) => {
+  const io = req.app.get("io"); // get Socket.IO
   try {
     const { name, description, price, category } = req.body;
 
@@ -99,7 +102,9 @@ const updateProduct = async (req, res) => {
     ]);
     const updatedProduct = updatedRows[0];
 
-    io.emit("productUpdated", updatedProduct);
+    if (updatedProduct) {
+      io.emit("productUpdated", updatedProduct);
+    }
 
     return res
       .status(200)
