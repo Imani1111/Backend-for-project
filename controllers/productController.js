@@ -57,21 +57,24 @@ const updateProduct = async (req, res) => {
   const io = req.app.get("io"); // get Socket.IO
   try {
     const { name, description, price, category } = req.body;
-
     let image;
 
+    console.log("UpdateProduct: Received body:", req.body);
+    console.log("UpdateProduct: Received file:", req.file ? "YES" : "NO");
+    console.log("UpdateProduct: Product ID:", req.params.id);
+
     if (price && isNaN(Number(price))) {
-      return res
-        .status(400)
-        .json({ success: false, message: "Price must be a number" });
+      return res.status(400).json({ success: false, message: "Price must be a number" });
     }
 
     // CLOUDINARY UPDATE
     if (req.file) {
+      console.log("UpdateProduct: Uploading to Cloudinary...");
       const result = await cloudinary.uploader.upload(req.file.buffer, {
         folder: "products",
       });
       image = result.secure_url;
+      console.log("UpdateProduct: Cloudinary URL:", image);
     }
 
     const updateData = {};
@@ -87,33 +90,28 @@ const updateProduct = async (req, res) => {
         .json({ success: false, message: "No valid fields to update" });
     }
 
-    // Use service for safe dynamic updates
     const result = await productService.patchProduct(req.params.id, updateData);
+    console.log("UpdateProduct: DB result:", result);
 
     if (!result || result.affectedRows === 0) {
-      return res
-        .status(404)
-        .json({ success: false, message: "Product not found" });
+      return res.status(404).json({ success: false, message: "Product not found" });
     }
 
-    // Fetch updated product to emit via Socket.IO
     const [updatedRows] = await db.execute("SELECT * FROM products WHERE id = ?", [
       req.params.id,
     ]);
     const updatedProduct = updatedRows[0];
+    console.log("UpdateProduct: Fetched product:", updatedProduct);
 
     if (updatedProduct) {
       io.emit("productUpdated", updatedProduct);
     }
 
-    return res
-      .status(200)
-      .json({ success: true, message: "Product updated successfully" });
+    return res.status(200).json({ success: true, message: "Product updated successfully" });
   } catch (err) {
-    console.error("Error updating product:", err.message);
-    res
-      .status(500)
-      .json({ success: false, message: "Server error", error: err.message });
+    console.error("Error updating product:", err);
+    console.error("Stack trace:", err.stack);
+    res.status(500).json({ success: false, message: "Server error", error: err.message });
   }
 };
 
