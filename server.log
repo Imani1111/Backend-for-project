@@ -1,0 +1,144 @@
+◇ injected env (12) from ../mybackend/.env // tip: ⌘ suppress logs { quiet: true }
+◇ injected env (0) from .env // tip: ⌘ enable debugging { debug: true }
+◇ injected env (0) from .env // tip: ⌘ suppress logs { quiet: true }
+🚀 Server running on port 5000
+✅ Connected to MySQL database (XAMPP)
+⚡ Client connected: QdXW1lK0vW22BITPAAAB
+GET /api/admin/dashboard 401 - 4ms
+⚡ Client connected: Z1iY7RYxxw2fIbI2AAAD
+GET /api/products/getproducts 304 - 66ms
+Client disconnected: Z1iY7RYxxw2fIbI2AAAD
+⚡ Client connected: zEXi3g2zR7KNt1qLAAAF
+GET /api/products/getproducts 304 - 4ms
+Client disconnected: zEXi3g2zR7KNt1qLAAAF
+⚡ Client connected: _kL2mU2nLZ5D595_AAAH
+GET /api/products/getproducts 304 - 16ms
+OPTIONS /api/admin/create-admin 204 - 5ms
+POST /api/admin/create-admin 201 - 378ms
+OPTIONS /api/admin/admin-login 204 - 4ms
+POST /api/admin/admin-login 200 - 131ms
+OPTIONS /api/admin/dashboard 204 - 0ms
+GET /api/admin/dashboard 200 - 8ms
+OPTIONS /api/products/getproducts 204 - 1ms
+OPTIONS /api/orders 204 - 1ms
+AUTH HEADER: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbkB0ZXN0LmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3ODE1NDQ3MSwiZXhwIjoxNzc4NzU5MjcxfQ.AypHihya2vcOJqb1fG_ewOUE6Zcs0sjllGwuqYbVajE
+TOKEN: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbkB0ZXN0LmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3ODE1NDQ3MSwiZXhwIjoxNzc4NzU5MjcxfQ.AypHihya2vcOJqb1fG_ewOUE6Zcs0sjllGwuqYbVajE
+DECODED: {
+  id: 2,
+  email: 'admin@test.com',
+  role: 'admin',
+  iat: 1778154471,
+  exp: 1778759271
+}
+GET /api/orders 500 - 5ms
+GET /api/products/getproducts 304 - 5ms
+GET /uploads/1777990219838-146508835.jpeg 304 - 3ms
+GET /uploads/1777994274293-175574931 304 - 1ms
+GET /uploads/1778153200979-601073398 200 - 137ms
+GET /uploads/1778151193976-195540622 200 - 162ms
+OPTIONS /api/admin/dashboard 204 - 0ms
+GET /api/admin/dashboard 304 - 2ms
+Client disconnected: QdXW1lK0vW22BITPAAAB
+⚡ Client connected: dJGj1Ktm8zEglO49AAAJ
+OPTIONS /api/cart 204 - 2ms
+GET /api/products/getproducts 304 - 3ms
+AUTH HEADER: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTc3ODE0OTY4NiwiZXhwIjoxNzc4NzU0NDg2fQ.CGOEC0mc48ULmUBw7Q-kRAERO26Kp09LwaPz7UGhVAA
+TOKEN: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTc3ODE0OTY4NiwiZXhwIjoxNzc4NzU0NDg2fQ.CGOEC0mc48ULmUBw7Q-kRAERO26Kp09LwaPz7UGhVAA
+DECODED: { userId: 1, iat: 1778149686, exp: 1778754486 }
+GET /api/cart 304 - 14ms
+OPTIONS /api/admin/admin-login 204 - 0ms
+POST /api/admin/admin-login 200 - 89ms
+OPTIONS /api/admin/dashboard 204 - 3ms
+GET /api/admin/dashboard 200 - 3ms
+OPTIONS /api/products/getproducts 204 - 0ms
+OPTIONS /api/orders 204 - 0ms
+AUTH HEADER: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJpbWFuaW5kdW5ndUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzgxNTQ1ODYsImV4cCI6MTc3ODc1OTM4Nn0.MM3ozRYploHEUvHobWOJuClbRkZRb08KjjwN2FHq80g
+TOKEN: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJpbWFuaW5kdW5ndUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzgxNTQ1ODYsImV4cCI6MTc3ODc1OTM4Nn0.MM3ozRYploHEUvHobWOJuClbRkZRb08KjjwN2FHq80g
+DECODED: {
+  id: 1,
+  email: 'imanindungu@gmail.com',
+  role: 'admin',
+  iat: 1778154586,
+  exp: 1778759386
+}
+GET /api/products/getproducts 304 - 5ms
+GET /api/orders 500 - 7ms
+GET /uploads/1777990219838-146508835.jpeg 304 - 2ms
+GET /uploads/1777994274293-175574931 304 - 2ms
+GET /uploads/1778151193976-195540622 304 - 3ms
+GET /uploads/1778153200979-601073398 304 - 1ms
+Client disconnected: dJGj1Ktm8zEglO49AAAJ
+Client disconnected: _kL2mU2nLZ5D595_AAAH
+⚡ Client connected: HbnzZchyTEBZiYZ1AAAL
+OPTIONS /api/admin/dashboard 204 - 0ms
+GET /api/admin/dashboard 304 - 5ms
+GET /api/products/getproducts 304 - 2ms
+OPTIONS /api/products/getproducts 204 - 0ms
+OPTIONS /api/orders 204 - 0ms
+GET /api/products/getproducts 304 - 2ms
+AUTH HEADER: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbkB0ZXN0LmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3ODE1NDQ3MSwiZXhwIjoxNzc4NzU5MjcxfQ.AypHihya2vcOJqb1fG_ewOUE6Zcs0sjllGwuqYbVajE
+TOKEN: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbkB0ZXN0LmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3ODE1NDQ3MSwiZXhwIjoxNzc4NzU5MjcxfQ.AypHihya2vcOJqb1fG_ewOUE6Zcs0sjllGwuqYbVajE
+DECODED: {
+  id: 2,
+  email: 'admin@test.com',
+  role: 'admin',
+  iat: 1778154471,
+  exp: 1778759271
+}
+GET /api/orders 500 - 2ms
+GET /uploads/1777990219838-146508835.jpeg 304 - 3ms
+GET /uploads/1777994274293-175574931 304 - 2ms
+GET /uploads/1778151193976-195540622 304 - 1ms
+GET /uploads/1778153200979-601073398 304 - 2ms
+⚡ Client connected: h-TW_ON52a4Dt2PgAAAN
+GET /api/products/getproducts 304 - 4ms
+OPTIONS /api/cart 204 - 1ms
+GET /api/products/getproducts 304 - 3ms
+AUTH HEADER: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTc3ODE0OTY4NiwiZXhwIjoxNzc4NzU0NDg2fQ.CGOEC0mc48ULmUBw7Q-kRAERO26Kp09LwaPz7UGhVAA
+TOKEN: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTc3ODE0OTY4NiwiZXhwIjoxNzc4NzU0NDg2fQ.CGOEC0mc48ULmUBw7Q-kRAERO26Kp09LwaPz7UGhVAA
+DECODED: { userId: 1, iat: 1778149686, exp: 1778754486 }
+GET /api/cart 304 - 6ms
+GET /uploads/1777990219838-146508835.jpeg 304 - 3ms
+GET /uploads/1777994274293-175574931 304 - 3ms
+GET /uploads/1778151193976-195540622 304 - 2ms
+GET /uploads/1778153200979-601073398 304 - 2ms
+⚡ Client connected: 7LZf1R9FZMyL1oeDAAAP
+OPTIONS /api/admin/dashboard 204 - 1ms
+GET /api/admin/dashboard 304 - 1ms
+GET /api/products/getproducts 304 - 2ms
+OPTIONS /api/cart 204 - 0ms
+AUTH HEADER: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTc3ODE0OTY4NiwiZXhwIjoxNzc4NzU0NDg2fQ.CGOEC0mc48ULmUBw7Q-kRAERO26Kp09LwaPz7UGhVAA
+TOKEN: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTc3ODE0OTY4NiwiZXhwIjoxNzc4NzU0NDg2fQ.CGOEC0mc48ULmUBw7Q-kRAERO26Kp09LwaPz7UGhVAA
+DECODED: { userId: 1, iat: 1778149686, exp: 1778754486 }
+GET /api/cart 304 - 2ms
+OPTIONS /api/products/getproducts 204 - 1ms
+OPTIONS /api/orders 204 - 0ms
+AUTH HEADER: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJpbWFuaW5kdW5ndUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzgxNTQ1ODYsImV4cCI6MTc3ODc1OTM4Nn0.MM3ozRYploHEUvHobWOJuClbRkZRb08KjjwN2FHq80g
+TOKEN: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJpbWFuaW5kdW5ndUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzgxNTQ1ODYsImV4cCI6MTc3ODc1OTM4Nn0.MM3ozRYploHEUvHobWOJuClbRkZRb08KjjwN2FHq80g
+DECODED: {
+  id: 1,
+  email: 'imanindungu@gmail.com',
+  role: 'admin',
+  iat: 1778154586,
+  exp: 1778759386
+}
+GET /api/orders 500 - 2ms
+GET /api/products/getproducts 304 - 3ms
+GET /uploads/1777990219838-146508835.jpeg 304 - 1ms
+GET /uploads/1777994274293-175574931 304 - 2ms
+GET /uploads/1778151193976-195540622 304 - 1ms
+GET /uploads/1778153200979-601073398 304 - 1ms
+Client disconnected: h-TW_ON52a4Dt2PgAAAN
+Client disconnected: 7LZf1R9FZMyL1oeDAAAP
+Client disconnected: HbnzZchyTEBZiYZ1AAAL
+⚡ Client connected: u9sUIE-ADzadd6VCAAAR
+GET /api/products/getproducts 200 - 3ms
+GET /api/products/getproducts 304 - 3ms
+GET /uploads/1777990219838-146508835.jpeg 200 - 31ms
+GET /uploads/1777994274293-175574931 200 - 120ms
+GET /uploads/1778151193976-195540622 200 - 138ms
+GET /uploads/1778153200979-601073398 200 - 110ms
+Client disconnected: u9sUIE-ADzadd6VCAAAR
+⚡ Client connected: d6YDcSaz8y8v6FBOAAAT
+GET /api/products/getproducts 304 - 3ms
+Client disconnected: d6YDcSaz8y8v6FBOAAAT
