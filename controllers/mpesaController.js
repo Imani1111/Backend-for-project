@@ -44,6 +44,7 @@ exports.stkPush = async (req, res) => {
         PhoneNumber: phone,
 
         CallBackURL:
+          process.env.MPESA_CALLBACK_URL ||
           "https://ledgeless-historiographically-alethea.ngrok-free.dev/api/mpesa/callback",
 
         AccountReference: "Order",

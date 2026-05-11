@@ -12,16 +12,16 @@ const addProduct = async (req, res) => {
         .status(400)
         .json({ success: false, message: "All fields required" });
 
-    if (isNaN(price))
+    if (isNaN(Number(price)))
       return res
         .status(400)
         .json({ success: false, message: "Price must be a number" });
 
-    // ✅ CLOUDINARY UPLOAD (UPDATED)
+    // ✅ CLOUDINARY UPLOAD (memory buffer)
     let image = null;
 
     if (req.file) {
-      const result = await cloudinary.uploader.upload(req.file.path, {
+      const result = await cloudinary.uploader.upload(req.file.buffer, {
         folder: "products",
       });
 
@@ -57,18 +57,17 @@ const updateProduct = async (req, res) => {
 
     let image;
 
-    if (price && isNaN(price)) {
+    if (price && isNaN(Number(price))) {
       return res
         .status(400)
         .json({ success: false, message: "Price must be a number" });
     }
 
-    // ✅ CLOUDINARY UPDATE (NEW)
+    // CLOUDINARY UPDATE
     if (req.file) {
-      const result = await cloudinary.uploader.upload(req.file.path, {
+      const result = await cloudinary.uploader.upload(req.file.buffer, {
         folder: "products",
       });
-
       image = result.secure_url;
     }
 
@@ -85,6 +84,7 @@ const updateProduct = async (req, res) => {
         .json({ success: false, message: "No valid fields to update" });
     }
 
+    // Use service for safe dynamic updates
     const result = await productService.patchProduct(req.params.id, updateData);
 
     if (!result || result.affectedRows === 0) {

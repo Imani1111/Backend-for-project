@@ -12,7 +12,7 @@ exports.getCart = async (req, res) => {
         );
         res.json(rows);
     } catch (err) {
-        res.status(500).json({ error: err.message, stack: err.stack, debug: { product, userId } });
+        res.status(500).json({ error: err.message, stack: err.stack });
     }
 };
 
@@ -64,7 +64,7 @@ exports.addToCart = async (req, res) => {
 
         res.json({ message: "Added to cart" });
     } catch (err) {
-        res.status(500).json({ error: err.message, stack: err.stack, debug: { product, userId } });
+        res.status(500).json({ error: err.message, stack: err.stack });
     }
 };
 
@@ -82,7 +82,7 @@ exports.updateCart = async (req, res) => {
 
         res.json({ message: "Updated" });
     } catch (err) {
-        res.status(500).json({ error: err.message, stack: err.stack, debug: { product, userId } });
+        res.status(500).json({ error: err.message, stack: err.stack });
     }
 };
 
@@ -100,6 +100,6 @@ exports.removeFromCart = async (req, res) => {
 
         res.json({ message: "Removed" });
     } catch (err) {
-        res.status(500).json({ error: err.message, stack: err.stack, debug: { product, userId } });
+        res.status(500).json({ error: err.message, stack: err.stack });
     }
 };

@@ -14,7 +14,7 @@ const pool = mysql.createPool({
     timezone: "+00:00",
 });
 
-poolPromise = pool.promise();
+const poolPromise = pool.promise();
 
 pool.getConnection((err, connection) => {
     if (err) {

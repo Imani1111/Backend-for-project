@@ -7,7 +7,6 @@ const { Server } = require("socket.io");
 const authRoutes = require("./routes/authRoutes");
 const productRoutes = require("./routes/productRoutes");
 const adminRoutes = require("./routes/adminRoutes");
-
 const cartRoutes = require("./routes/cartRoutes");
 const orderRoutes = require("./routes/orderRoutes");
 const mpesaRoutes = require("./routes/mpesaRoutes");

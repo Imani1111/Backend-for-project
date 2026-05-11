@@ -14,7 +14,7 @@ const adminLogin = async (req, res) => {
             return res.status(400).json({ message: "Email and password required" });
 
 
-        const [rows] = await db.query("SELECT * FROM admins WHERE email = ?", [email]);
+        const [rows] = await db.execute("SELECT * FROM admins WHERE email = ?", [email]);
         if (rows.length === 0)
             return res.status(401).json({ message: "Invalid email or password" });
 
@@ -44,13 +44,13 @@ const createAdmin = async (req, res) => {
         if (!name || !email || !password)
             return res.status(400).json({ message: "Name, email, and password required" });
 
-        const [existing] = await db.query("SELECT * FROM admins WHERE email = ?", [email]);
+        const [existing] = await db.execute("SELECT * FROM admins WHERE email = ?", [email]);
         if (existing.length > 0)
             return res.status(400).json({ message: "Admin already exists" });
 
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        const [result] = await db.query(
+        const [result] = await db.execute(
             "INSERT INTO admins (name, email, password) VALUES (?, ?, ?)",
             [name, email, hashedPassword]
         );
