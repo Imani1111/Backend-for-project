@@ -19,7 +19,7 @@ const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
     origin: ["http://localhost:5173",
-             "https://skins-wybb.onrender.com"]
+             "https://skins-wybb.onrender.com"],
     credentials: true,
   },
 });
