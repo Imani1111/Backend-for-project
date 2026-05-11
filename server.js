@@ -18,8 +18,7 @@ const httpServer = createServer(app);
 // SOCKET.IO SETUP
 const io = new Server(httpServer, {
   cors: {
-    origin: ["http://localhost:5173",
-             "https://skins-wybb.onrender.com"],
+    origin: ["http://localhost:5173", "https://skins-wybb.onrender.com"],
     credentials: true,
   },
 });
@@ -50,8 +49,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cors());
-
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // ROUTES
 app.use("/api/auth", authRoutes);
