@@ -51,9 +51,9 @@ const addProduct = async (req, res) => {
     }
 
     return res.status(201).json({ success: true, product: newProduct });
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ success: false, message: "Server Error" });
+  } catch (err) {
+    const errorMsg = err.message || err.error?.message || (typeof err === "string" ? err : "Unknown error");
+    return res.status(500).json({ success: false, message: "Server Error", error: errorMsg });
   }
 };
 
@@ -120,7 +120,8 @@ const updateProduct = async (req, res) => {
   } catch (err) {
     console.error("Error updating product:", err);
     console.error("Stack trace:", err.stack);
-    res.status(500).json({ success: false, message: "Server error", error: err.message });
+    const errorMsg = err.message || err.error?.message || (typeof err === "string" ? err : "Unknown error");
+    res.status(500).json({ success: false, message: "Server error", error: errorMsg });
   }
 };
 
