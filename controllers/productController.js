@@ -21,13 +21,15 @@ const addProduct = async (req, res) => {
     let image = null;
 
     if (req.file) {
-      const b64 = Buffer.from(req.file.buffer).toString("base64");
-      let dataURI = "data:" + req.file.mimetype + ";base64," + b64;
-      const result = await cloudinary.uploader.upload(dataURI, {
-        folder: "products",
+      image = await new Promise((resolve, reject) => {
+        cloudinary.uploader.upload_stream(
+          { folder: "products" },
+          (error, result) => {
+            if (error) reject(error);
+            else resolve(result.secure_url);
+          }
+        ).end(req.file.buffer);
       });
-
-      image = result.secure_url;
     }
 
     const [result] = await db.execute(
@@ -71,13 +73,16 @@ const updateProduct = async (req, res) => {
 
     // CLOUDINARY UPDATE
     if (req.file) {
-      console.log("UpdateProduct: Uploading to Cloudinary...");
-      const b64 = Buffer.from(req.file.buffer).toString("base64");
-      let dataURI = "data:" + req.file.mimetype + ";base64," + b64;
-      const result = await cloudinary.uploader.upload(dataURI, {
-        folder: "products",
+      console.log("UpdateProduct: Uploading to Cloudinary via stream...");
+      image = await new Promise((resolve, reject) => {
+        cloudinary.uploader.upload_stream(
+          { folder: "products" },
+          (error, result) => {
+            if (error) reject(error);
+            else resolve(result.secure_url);
+          }
+        ).end(req.file.buffer);
       });
-      image = result.secure_url;
       console.log("UpdateProduct: Cloudinary URL:", image);
     }
 
