@@ -21,7 +21,9 @@ const addProduct = async (req, res) => {
     let image = null;
 
     if (req.file) {
-      const result = await cloudinary.uploader.upload(req.file.buffer, {
+      const b64 = Buffer.from(req.file.buffer).toString("base64");
+      let dataURI = "data:" + req.file.mimetype + ";base64," + b64;
+      const result = await cloudinary.uploader.upload(dataURI, {
         folder: "products",
       });
 
@@ -70,7 +72,9 @@ const updateProduct = async (req, res) => {
     // CLOUDINARY UPDATE
     if (req.file) {
       console.log("UpdateProduct: Uploading to Cloudinary...");
-      const result = await cloudinary.uploader.upload(req.file.buffer, {
+      const b64 = Buffer.from(req.file.buffer).toString("base64");
+      let dataURI = "data:" + req.file.mimetype + ";base64," + b64;
+      const result = await cloudinary.uploader.upload(dataURI, {
         folder: "products",
       });
       image = result.secure_url;
